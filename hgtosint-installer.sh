@@ -24,9 +24,16 @@ echo "TELEGRAM_BOT_TOKEN=$usrtoken" >> .env
 python3 -m pip install --upgrade pip > nul 2>&1
 pip install -r requirements.txt --break-system-packages
 python3 -m venv venv
-nohup python3 main.py
+
+echo 'Admin panel: your_setup_ip:5000
+Default login and pass - admin:admin' > ~/hgt-osint-cred.txt
+
+echo 'cd hgtosint/
+nohup python3 main.py &
+python3 web_admin.py
+' > ~/runbot.sh
+nohup python3 main.py &
 python3 web_admin.py
 
 cd ~
-echo 'Admin panel: your_setup_ip:5000
-Default login and pass - admin:admin' > hgt-osint-cred.txt
+echo 'Run: bash runbot.sh' > guide.txt
