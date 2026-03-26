@@ -26,7 +26,10 @@ pip install -r requirements.txt --break-system-packages
 python3 -m venv venv
 
 echo 'Admin panel: your_setup_ip:5000
-Default login and pass - admin:admin' > ~/hgt-osint-cred.txt
+Default login and pass - admin:admin
+
+Webmin panel: server_ip:10000
+Login and pass - your root account or any sudo user' > ~/hgt-osint-cred.txt
 
 echo 'cd hgtosint/
 nohup python3 main.py &
@@ -36,4 +39,4 @@ nohup python3 main.py &
 python3 web_admin.py
 
 cd ~
-echo 'Run: bash runbot.sh' > guide.txt
+echo 'For run bot: bash runbot.sh' > guide.txt
