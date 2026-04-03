@@ -51,3 +51,7 @@ volumes:
   tirreno-db:' > docker-compose.yml
 
 docker compose up -d
+
+echo 'create your account - http://$usrip:$usrport/signup
+
+your panel - http://$usrip:$usrport/signup' > tirreno.txt
