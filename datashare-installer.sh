@@ -162,6 +162,7 @@ chmod +x disable-autostart.sh
 
 echo "✅ Datashare installed"
 echo "➡ Manual start: $INSTALL_DIR/start.sh"
+echo "Manual start without script: $INSTALL_DIR/run.sh --mode LOCAL --elasticsearchAddress http://localhost:9200"
 echo "➡ Enable autostart: ./enable-autostart.sh"
 echo "➡ Disable autostart: ./disable-autostart.sh"
 echo "🌐 Web UI: http://$(hostname -I | awk '{print $1}'):8080"
