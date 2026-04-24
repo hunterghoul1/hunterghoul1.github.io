@@ -116,12 +116,29 @@ sh neo4j.sh
 iptables -A INPUT -p tcp --dport 7474 -j ACCEPT
 iptables -A INPUT -p tcp --dport 7687 -j ACCEPT
 
-cd
+# archivebox installer
+
+mkdir -p ~/archivebox/data && cd ~/archivebox/data
+
+docker run -d -v $PWD:/data -p 1234:8000 archivebox/archivebox
+
+# create admin archivebox
+
+usrContID=$(docker ps | grep archivebox | grep -o '^[^ ]*')
+
+docker exec -it --user=archivebox $usrContID /bin/bash -c "archivebox manage createsuperuser"
+
+docker exec -it --user=archivebox $usrContID /bin/bash -c "archivebox config --set PUBLIC_INDEX=False"
+
+docker exec -it --user=archivebox $usrContID /bin/bash -c "archivebox config --set PUBLIC_SNAPSHOTS=False"
+
+docker exec -it --user=archivebox $usrContID /bin/bash -c "archivebox config --set PUBLIC_ADD_VIEW=False"
 
 echo 'Install full complete.
 OpenCTI - http://$(hostname -I | awk '{print $1}'):8080
 OpenSearch - http://$(hostname -I | awk '{print $1}'):5601
-Neo4j - http://$(hostname -I | awk '{print $1}'):7474' > cred.txt
+Neo4j - http://$(hostname -I | awk '{print $1}'):7474
+ArchiveBox - http://$(hostname -I | awk '{print $1}'):1234' > cred.txt
 
 clear
 
