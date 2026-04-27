@@ -23,6 +23,7 @@ go mod tidy
 nano cmd/server/main.go
 nano cmd/osint-stividor/main.go
 nano internal/app/static/index.html
+nano web/static/index.html
 nano internal/app/static/app.js
 cp ~/favicon.png ~/osint-stividor/internal/app/static/favicon.png
 go build -o ~/stividor-run ./cmd/server
