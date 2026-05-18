@@ -1,7 +1,7 @@
 apt update
 apt install wget -y
 apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
-curl -fsSL https://get.docker.com -O get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
 rm get-docker.sh
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
