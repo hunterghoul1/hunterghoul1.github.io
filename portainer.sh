@@ -23,6 +23,7 @@ networks:
   default:
     name: portainer_network' > portainer-compose.yaml
 docker compose -f portainer-compose.yaml up -d
+curl https://localhost:9443/
 echo 'Wait init container'
 sleep 10
 clear
