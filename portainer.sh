@@ -23,9 +23,10 @@ networks:
   default:
     name: portainer_network' > portainer-compose.yaml
 docker compose -f portainer-compose.yaml up -d
-curl https://localhost:9443/
 echo 'Wait init container'
-sleep 10
+sleep 5
+curl https://localhost:9443/
+sleep 5
 clear
 echo 'Use this token for install admin account'
 docker logs portainer 2>&1 | grep setup_token
