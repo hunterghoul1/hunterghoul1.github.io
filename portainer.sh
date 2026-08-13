@@ -2,6 +2,7 @@ apt update
 wget https://hunterghoul1.github.io/dockerinstaller.sh -O docker.sh
 chmod +x docker.sh
 sh docker.sh
+rm docker.sh
 echo 'services:
   portainer:
     container_name: portainer
